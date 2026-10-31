@@ -1,0 +1,146 @@
+[
+  {
+    "timestamp": "2026-10-31T21:17:58",
+    "sender": "Orchestrator",
+    "receiver": "Document Intake Agent",
+    "type": "TASK",
+    "payload": {
+      "case_id": "CF-59622BA3"
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:58",
+    "sender": "Document Intake Agent",
+    "receiver": "Orchestrator",
+    "type": "FINDING",
+    "payload": {
+      "status": "PASS",
+      "required_fields_missing": [],
+      "uploaded_files": [],
+      "note": "Prototype records filenames and checks form completeness; it does not perform OCR or verify document authenticity."
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Orchestrator",
+    "receiver": "Cash-Flow Analysis Agent",
+    "type": "TASK",
+    "payload": {
+      "case_id": "CF-59622BA3"
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Cash-Flow Analysis Agent",
+    "receiver": "Orchestrator",
+    "type": "FINDING",
+    "payload": {
+      "transaction_count": 13,
+      "total_credits": 478000.0,
+      "total_debits": 90200.0,
+      "net_cash_flow": 387800.0,
+      "avg_monthly_credits": 478000.0,
+      "avg_monthly_debits": 90200.0,
+      "months_estimated": 1,
+      "negative_net_cashflow": false,
+      "status": "PASS",
+      "note": "Computed from supplied transaction CSV; figures are indicative and not independently verified."
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Orchestrator",
+    "receiver": "Fraud Investigation Agent",
+    "type": "TASK",
+    "payload": {
+      "case_id": "CF-59622BA3"
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Fraud Investigation Agent",
+    "receiver": "Orchestrator",
+    "type": "FINDING",
+    "payload": {
+      "status": "FLAG",
+      "flags": [
+        {
+          "row": 8,
+          "description": "Unknown beneficiary transfer",
+          "matched_indicators": [
+            "unknown beneficiary"
+          ]
+        }
+      ],
+      "flag_count": 1,
+      "note": "Keyword screening only; a flag is an investigation lead, not proof of fraud."
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Credit Risk Agent",
+    "receiver": "Policy & Compliance Agent",
+    "type": "RISK_FINDING",
+    "payload": {
+      "score": 90,
+      "risk_band": "LOW",
+      "reasons": [
+        "Potential transaction indicators require investigation"
+      ],
+      "status": "PASS",
+      "note": "Transparent demonstration score; not a validated lending or bureau score."
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Policy & Compliance Agent",
+    "receiver": "Loan Structuring Agent",
+    "type": "POLICY_RESULT",
+    "payload": {
+      "checks": [
+        {
+          "rule": "Positive requested amount",
+          "passed": true,
+          "detail": "Requested amount must be greater than zero."
+        },
+        {
+          "rule": "Demo exposure cap",
+          "passed": true,
+          "detail": "Prototype cap is \u20b9500,000."
+        },
+        {
+          "rule": "No unresolved high-risk band",
+          "passed": true,
+          "detail": "High-risk cases require rejection/escalation in this demo."
+        },
+        {
+          "rule": "Fraud flags reviewed",
+          "passed": false,
+          "detail": "Any indicator requires manual investigation."
+        },
+        {
+          "rule": "Cash-flow evidence present",
+          "passed": true,
+          "detail": "Transaction data is required for this demo workflow."
+        }
+      ],
+      "failed_checks": [
+        "Fraud flags reviewed"
+      ],
+      "status": "HOLD"
+    }
+  },
+  {
+    "timestamp": "2026-10-31T21:17:59",
+    "sender": "Loan Structuring Agent",
+    "receiver": "Orchestrator",
+    "type": "PROPOSAL",
+    "payload": {
+      "status": "NOT_PROPOSED",
+      "proposed_amount": 0,
+      "tenure_months": null,
+      "monthly_installment": null,
+      "note": "Terms not proposed because policy checks are on hold."
+    }
+  }
+]

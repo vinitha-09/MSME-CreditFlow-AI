@@ -1,0 +1,3 @@
+# Underwriting workflow
+
+Applicant details and transaction CSV are submitted. The Document Intake Agent checks required form fields and records filenames of supporting files. Cash-Flow Agent totals credits and debits. Fraud Investigation Agent searches transaction descriptions for configured indicators. Credit Risk Agent computes an explainable demonstration score. Policy Agent applies explicit limits and holds cases with missing cash-flow evidence, fraud indicators, high risk or over-limit requests. Loan Structuring Agent calculates illustrative EMI only if checks pass. CAM summarizes evidence and limitations. The mock ledger records a proposal only; an authorized human must approve or reject.

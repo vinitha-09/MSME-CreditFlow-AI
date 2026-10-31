@@ -1,0 +1,14 @@
+date,description,type,amount
+2026-09-01,Customer invoice payment,credit,85000
+2026-09-02,Raw material supplier,debit,22000
+2026-09-04,Customer invoice payment,credit,72000
+2026-09-05,Staff salary,debit,18000
+2026-09-08,Utility bill,debit,6500
+2026-09-10,Customer invoice payment,credit,91000
+2026-09-12,Supplier payment,debit,12000
+2026-09-15,Customer invoice payment,credit,64000
+2026-09-17,Equipment maintenance,debit,9500
+2026-09-20,Customer invoice payment,credit,78000
+2026-09-22,Working capital repayment,debit,15000
+2026-09-25,Customer invoice payment,credit,88000
+2026-09-28,Transport expenses,debit,7200
